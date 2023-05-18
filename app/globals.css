@@ -2,26 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  .hover-navbar { @apply before:block before:content-[''] before:border-t-2 before:scale-x-0 before:duration-300 before:ease-in-out hover:before:scale-x-150 before:border-red-500 before:h-8 cursor-pointer hover:text-red-500};
+  .navs-show {@apply uppercase absolute px-6 xl:flex text-sm items-center w-[85%] xl:w-full top-full right-0 left-0 m-auto xl:static shadow-md xl:shadow-none justify-end bg-white};
+  .navs-hide{@apply uppercase absolute px-6 xl:flex text-sm items-center w-[85%] xl:w-full top-full right-0 left-0 m-auto xl:static shadow-md xl:shadow-none justify-end hidden bg-white};
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
+  
