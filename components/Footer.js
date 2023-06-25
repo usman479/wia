@@ -14,7 +14,7 @@ export default function Footer() {
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               stroke="currentColor"
               className="w-4 h-4"
             >
@@ -37,7 +37,7 @@ export default function Footer() {
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               stroke="currentColor"
               className="w-4 h-4"
             >
@@ -71,7 +71,7 @@ export default function Footer() {
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 512 512"
                   className="text-white h-4 w-4"
                   height="1em"
@@ -87,7 +87,7 @@ export default function Footer() {
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 320 512"
                   className="text-white h-4 w-4"
                   height="1em"
@@ -156,7 +156,7 @@ export default function Footer() {
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
-                  stroke-width="1.5"
+                  strokeWidth="1.5"
                   stroke="currentColor"
                   className="w-4 h-4 pb-1 inline"
                 >
@@ -180,7 +180,7 @@ export default function Footer() {
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
-                  stroke-width="1.5"
+                  strokeWidth="1.5"
                   stroke="currentColor"
                   className="w-4 h-4 pb-1 inline"
                 >
@@ -203,7 +203,7 @@ export default function Footer() {
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
-                  stroke-width="1.5"
+                  strokeWidth="1.5"
                   stroke="currentColor"
                   className="w-4 h-4 pb-1 inline"
                 >
@@ -226,7 +226,7 @@ export default function Footer() {
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
-                  stroke-width="1.5"
+                  strokeWidth="1.5"
                   stroke="currentColor"
                   className="w-4 h-4 pb-1 inline"
                 >

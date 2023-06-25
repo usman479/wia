@@ -1,18 +1,21 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
+import Link from "next/link";
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <main className="fixed top-0 left-0 right-0 z-50 bg-white">
-      <div className="relative xl:static justify-between px-6 md:px-20 py-2 items-center flex shadow-md">
-        <Image
-          src="/logo.png"
-          width={130}
-          height={130}
-          alt="logo"
-          className="self-end"
-        />
+    <main className="fixed top-0 left-0 right-0 z-50 bg-white select-none w-full">
+      <div className="relative xl:static justify-between px-6 md:px-20 py-2 items-center flex shadow-md h-28">
+        <Link href="/">
+          <Image
+            src="/logo.png"
+            width={130}
+            height={130}
+            alt="logo"
+            className="self-end"
+          />
+        </Link>
         <ul className={!isOpen ? "navs-hide" : "navs-show"}>
           <li className="xl:hover-navbar hover:text-red-500 cursor-pointer py-4 border-b xl:border-none xl:py-6 xl:px-4">
             about us
@@ -29,9 +32,11 @@ export default function Header() {
           <li className="xl:hover-navbar hover:text-red-500 cursor-pointer py-4 border-b xl:border-none xl:py-6 xl:px-4">
             news & media
           </li>
-          <li className="xl:hover-navbar hover:text-red-500 cursor-pointer py-4 border-b xl:border-none xl:py-6 xl:px-4">
-            contact
-          </li>
+          <Link href="/contact">
+            <li className="xl:hover-navbar hover:text-red-500 cursor-pointer py-4 border-b xl:border-none xl:py-6 xl:px-4">
+              contact
+            </li>
+          </Link>
         </ul>
         <svg
           xmlns="http://www.w3.org/2000/svg"
