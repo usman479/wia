@@ -5,7 +5,7 @@ import { urlForImage } from "@/sanity/lib/image";
 import { PortableText } from "@portabletext/react";
 import { RichTextComponents } from "@/components/RichTextComponents";
 
-// export const revalidate = 30 // revalidate this page every 60 seconds
+export const revalidate = 60 // revalidate this page every 60 seconds
 
 
 async function getPost(slug) {
@@ -17,17 +17,16 @@ async function getPost(slug) {
 
   return res;
 }
-
 // Return a list of `params` to populate the [slug] dynamic segment
-// export async function generateStaticParams() {
-//   const posts = await client.fetch(`*[_type == 'post']`,{next:{revalidate:60}});
-//     // console.log('suiiii:', posts)
-//     // return null;
-//   const routes = posts.map((post) => post.slug.current);
-//   return routes.map(slug => ({
-//     slug
-//   }))
-// }
+export async function generateStaticParams() {
+  const posts = await client.fetch(`*[_type == 'post']`,{next:{revalidate:60}});
+    // console.log('suiiii:', posts)
+    // return null;
+  const routes = posts.map((post) => post.slug.current);
+  return routes.map(slug => ({
+    slug
+  }))
+}
 
 export default async function postPage({ params: { slug } }) {
   const post = await getPost(slug);
