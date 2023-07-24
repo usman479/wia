@@ -6,12 +6,22 @@ export default {
     { 
         name: "name",
         type:'string',
-        readOnly:true
+        readOnly:false
     },
     {
         name:'text',
         type:'text',
-        readOnly:true
+        readOnly:false
+    },
+    {
+        name:'image',
+        type:'text',
+        readOnly:false
+    },
+    {
+        name:'mail',
+        type:'text',
+        readOnly:false
     },
     {
         name:'post',
@@ -19,6 +29,15 @@ export default {
         to:[
             {
                 type:'post'
+            }
+        ]
+    },
+    {
+        name:'reply',
+        type:'reference',
+        to:[
+            {
+                type:'comment'
             }
         ]
     }

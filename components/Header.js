@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   ClerkProvider,
   SignedIn,
@@ -12,6 +13,7 @@ import {
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathName = usePathname();
   // const { isLoaded, userId, sessionId, getToken } = useAuth();
   // const { isLoaded, isSignedIn, user } = useUser();
   // console.log(isLoaded, isSignedIn, user )
@@ -59,11 +61,13 @@ export default function Header() {
           </SignedOut>
           <SignedIn>
             <UserButton
-              afterSignOutUrl="/"
+              afterSignOutUrl={pathName}
               appearance={{
                 elements: {
                   rootBox: "self-center py-4 xl:border-none xl:py-6 xl:px-4",
-                  avatarBox:" w-10 h-10"
+                  avatarBox:" w-10 h-10",
+                  userButtonPopoverActionButton__manageAccount  :"hidden",
+                  userButtonPopoverFooter : 'hidden'
                 },
               }}
             />

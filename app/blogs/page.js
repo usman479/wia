@@ -6,7 +6,7 @@ export const revalidate = 60 // revalidate this page every 60 seconds
 
 
 async function getBlogs() {
-    const res = await client.fetch(`*[_type == 'post']`);
+    const res = await client.fetch(`*[_type == 'post'] | order(_createdAt desc)`);
     return res;
 }
 
