@@ -54,9 +54,6 @@ export async function generateStaticParams() {
 
 export default async function postPage({ params: { slug } }) {
   const post = await getPost(slug);
-  // console.log(post)
-  // const comments = await getComments();
-  // return <p>{JSON.stringify(post)}</p>
   return (
     <article className="px-10 pb-28 mt-36">
       <section className="space-y-2 border border-red-600 text-white">

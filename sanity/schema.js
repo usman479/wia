@@ -4,8 +4,10 @@ import post from './schemas/post'
 import author from './schemas/author'
 import pet from './schemas/pet'
 import comment from './schemas/comment'
+import service from './schemas/service'
+import subService from './schemas/subService'
 
 export const schema = {
   // types: [category,post,author,pet,blockContent,comment],
-  types:[post,comment,blockContent]
+  types:[post,comment,blockContent,service,subService]
 }

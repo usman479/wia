@@ -10,7 +10,6 @@ async function getBlogs() {
     return res;
 }
 
-
 export default async function page() {
     const data = await getBlogs();
   return (

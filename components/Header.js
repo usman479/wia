@@ -33,12 +33,16 @@ export default function Header() {
           <li className="xl:hover-navbar hover:text-red-500 cursor-pointer py-4 border-b xl:border-none xl:py-6 xl:px-4">
             about us
           </li>
-          <li className="xl:hover-navbar hover:text-red-500 cursor-pointer py-4 border-b xl:border-none xl:py-6 xl:px-4">
-            programs
-          </li>
-          <li className="xl:hover-navbar hover:text-red-500 cursor-pointer py-4 border-b xl:border-none xl:py-6 xl:px-4">
-            events
-          </li>
+          <Link href={"/service"}>
+            <li className="xl:hover-navbar hover:text-red-500 cursor-pointer py-4 border-b xl:border-none xl:py-6 xl:px-4">
+              Services
+            </li>
+          </Link>
+          <Link href={"/portfolio"}>
+            <li className="xl:hover-navbar hover:text-red-500 cursor-pointer py-4 border-b xl:border-none xl:py-6 xl:px-4">
+              Portfolio
+            </li>
+          </Link>
           <li className="xl:hover-navbar hover:text-red-500 cursor-pointer py-4 border-b xl:border-none xl:py-6 xl:px-4">
             get involved
           </li>
@@ -65,9 +69,9 @@ export default function Header() {
               appearance={{
                 elements: {
                   rootBox: "self-center py-4 xl:border-none xl:py-6 xl:px-4",
-                  avatarBox:" w-10 h-10",
-                  userButtonPopoverActionButton__manageAccount  :"hidden",
-                  userButtonPopoverFooter : 'hidden'
+                  avatarBox: " w-10 h-10",
+                  userButtonPopoverActionButton__manageAccount: "hidden",
+                  userButtonPopoverFooter: "hidden",
                 },
               }}
             />

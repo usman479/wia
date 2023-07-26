@@ -7,7 +7,6 @@ export default function Home() {
     <>
       <Corousel />
       <section className="bg-[url('.././public/texture.jpg')] text-center md:text-left bg-blend-color-dodge bg-white/50 bg-repeat bg-center flex flex-col md:flex-row  items-center gap-y-6 gap-x-24 py-8  px-6 md:px-20 my-12  justify-center ">
-       
         <div className="space-y-6">
           <h2 className="text-5xl font-bold">WIA MENTORSHIP PROGRAM</h2>
           <h3 className="text-3xl font-semibold">Empowering Animation Professionals</h3>
@@ -17,8 +16,7 @@ export default function Home() {
             careers.
           </p>
         </div>
-        <Image src={cartoonCharacters} className="w-[80%] h-[80%]  md:w-[50%] md:h-[50%] align-bottom"/>
-
+        <Image src={cartoonCharacters} className="w-[80%] h-[80%]  md:w-[50%] md:h-[50%] align-bottom" alt="`graphics"/>
       </section>
     </>
   );
