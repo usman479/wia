@@ -7,6 +7,7 @@ import { RichTextComponents } from "@/components/RichTextComponents";
 import CommentSection from "@/components/CommentSection";
 import Comments from "@/components/Comments";
 import Service from "@/components/Service";
+import ReactPlayer from "react-player";
 
 
 export const revalidate = 60; // revalidate this page every 60 seconds
@@ -38,7 +39,7 @@ export default async function postPage({ params: { slug } }) {
   return (
     <div className=" mb-12 mt-36 space-y-8 px-6 md:px-20">
       {subServices.map((subService,index) => {
-        return <Service image={subService.image} title={subService.title} description={subService.description} position={index} key={subService._id} id={null}/>
+        return <Service image={subService.image} videoUrl={subService.videoUrl} title={subService.title} description={subService.description} position={index} key={subService._id} id={null}/>
       })}
     </div>
   );
