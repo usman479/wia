@@ -30,7 +30,7 @@ export default function Service({
   if (id) {
     exploreButton = (
       <ClientSideRoute route={`/service/${id}`}>
-        <button className="bg-red-600 text-white px-6 py-2 border border-white shadow-lg hover:scale-105 duration-200 tracking-wider ">
+        <button className="bg-red-600 text-white px-6 py-2 border  border-white shadow-lg hover:scale-105 duration-200 tracking-wider ">
           EXPLORE
         </button>
       </ClientSideRoute>

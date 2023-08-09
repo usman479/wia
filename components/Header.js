@@ -30,9 +30,11 @@ export default function Header() {
           />
         </Link>
         <ul className={!isOpen ? "navs-hide" : "navs-show"}>
-          <li className="xl:hover-navbar hover:text-red-500 cursor-pointer py-4 border-b xl:border-none xl:py-6 xl:px-4">
-            about us
-          </li>
+          {/* <Link href={"/about-us"}>
+            <li className="xl:hover-navbar hover:text-red-500 cursor-pointer py-4 border-b xl:border-none xl:py-6 xl:px-4">
+              about us
+            </li>
+          </Link> */}
           <Link href={"/service"}>
             <li className="xl:hover-navbar hover:text-red-500 cursor-pointer py-4 border-b xl:border-none xl:py-6 xl:px-4">
               Services
@@ -43,9 +45,9 @@ export default function Header() {
               Portfolio
             </li>
           </Link>
-          <li className="xl:hover-navbar hover:text-red-500 cursor-pointer py-4 border-b xl:border-none xl:py-6 xl:px-4">
+          {/* <li className="xl:hover-navbar hover:text-red-500 cursor-pointer py-4 border-b xl:border-none xl:py-6 xl:px-4">
             get involved
-          </li>
+          </li> */}
           <Link href={"/blogs"}>
             <li className="xl:hover-navbar hover:text-red-500 cursor-pointer py-4 border-b xl:border-none xl:py-6 xl:px-4">
               blogs

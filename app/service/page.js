@@ -5,8 +5,12 @@ import { urlForImage } from "@/sanity/lib/image";
 import Service from "@/components/Service";
 import { client } from "@/sanity/lib/client";
 
+export const revalidate = 60 // revalidate this page every 60 seconds
+
 async function getServices() {
-  const res = await client.fetch(`*[_type == 'service'] | order(_createdAt desc)`);
+  const res = await client.fetch(`*[_type == 'service'] | order(_createdAt desc)`, {
+    next: { revalidate: 60 },
+  });
   return res;
 }
 

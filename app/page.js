@@ -2,6 +2,9 @@ import Corousel from "@/components/corousel";
 import Image from "next/image";
 // import UpTheLadder from "@/public/upTheLadder-2.png";
 import cartoonCharacters from "/public/cartoon-characters.png";
+import Testimonials from "@/components/Testimonials";
+import TestimonialCarousel from "@/components/TestimonialCarousel";
+
 export default function Home() {
   return (
     <>
@@ -18,6 +21,7 @@ export default function Home() {
         </div>
         <Image src={cartoonCharacters} className="w-[80%] h-[80%]  md:w-[50%] md:h-[50%] align-bottom" alt="`graphics"/>
       </section>
+      <TestimonialCarousel/>
     </>
   );
 }

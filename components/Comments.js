@@ -59,7 +59,7 @@ export default function Comments({
 
   return (
     <div className="mt-4">
-      <div className="flex justify-between flex-col  sm:flex-row ml-[3.4rem] sm:ml-0">
+      <div className="flex justify-between flex-col  sm:flex-row  ">
         <div className="flex">
           <img class="w-10 h-10 rounded" src={image} alt="Default avatar"></img>
           <div className="flex flex-col ml-4">
@@ -97,7 +97,7 @@ export default function Comments({
 
       <SignedIn>
         {replyOpened && (
-          <div className="flex ml-12 mt-4">
+          <div className="flex sm:ml-12 mt-4">
             <img
               class="w-10 h-10 rounded"
               src={user?.imageUrl || null}

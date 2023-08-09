@@ -10,8 +10,12 @@ import { client } from "@/sanity/lib/client";
 import GalleryCard from "@/components/GalleryCard";
 import Gallery from "@/components/Gallery";
 
+export const revalidate = 60 // revalidate this page every 60 seconds
+
 async function getGallery() {
-  const gallery = await client.fetch(`*[_type == 'gallery']`);
+  const gallery = await client.fetch(`*[_type == 'gallery'] | order(_createdAt desc)`, {
+    next: { revalidate: 60 },
+  });
 
   return gallery;
 }

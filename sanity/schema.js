@@ -7,8 +7,9 @@ import comment from './schemas/comment'
 import service from './schemas/service'
 import subService from './schemas/subService'
 import gallery from './schemas/gallery'
+import testimonials from './schemas/testimonials'
 
 export const schema = {
   // types: [category,post,author,pet,blockContent,comment],
-  types:[post,comment,blockContent,service,subService,gallery]
+  types:[post,comment,blockContent,service,subService,gallery,testimonials]
 }

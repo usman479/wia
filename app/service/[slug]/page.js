@@ -15,7 +15,9 @@ export const revalidate = 60; // revalidate this page every 60 seconds
 async function getSubServices(slug) {
 //   console.log('slug: ', slug)
   const res =
-    await client.fetch(`*[_type == 'subService' && serviceOf._ref == '${slug}']`);
+    await client.fetch(`*[_type == 'subService' && serviceOf._ref == '${slug}'] | order(_createdAt desc)`, {
+      next: { revalidate: 60 },
+    });
 //   console.log('response: ', res)
   return res;
 }

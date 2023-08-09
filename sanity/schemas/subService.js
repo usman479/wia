@@ -16,7 +16,7 @@ export default {
     },
     {
       name: "image",
-      title: "image",
+      title: "Image",
       type: "image",
       validation: (Rule) =>
         Rule.custom((field, context) => {

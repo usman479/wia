@@ -1,15 +1,37 @@
-"use client";
+// "use client";
 import Image from "next/image";
+import { client } from '@/sanity/lib/client'
+import ClientSideRoute from "./ClientSideRoute";
 
-export default function Footer() {
+export const revalidate = 60 // revalidate this page every 60 seconds
+
+async function getLatestPosts () {
+  const res = await client.fetch(`*[_type == 'post'] | order(_createdAt desc) [0...4]`, {
+    next: { revalidate: 60 },
+  });
+  return res;
+}
+
+// async function getServices() {
+//   const res = await client.fetch(`*[_type == 'service'] | order(_createdAt desc)`);
+//   return res;
+// }
+
+let months = ['Jan','Feb','Mar','Apr','May',"Jun",'July','Aug','Sep','Oct','Nov','Dec'];
+
+export default async function Footer() {
+
+  const posts = await getLatestPosts();
+
   return (
     <>
-      <div className="bg-[#282828] text-white flex justify-between flex-wrap lg:flex-nowrap py-10 px-6 md:px-20">
-        <div className="mb-6">
+      <div className="bg-[#282828] text-white flex justify-between flex-wrap lg:flex-nowrap py-10 px-6 md:px-20 gap-x-6">
+        
+        <div className="CONTACT-US mb-2">
           <h2 className="relative text-xl after:content-[''] after:absolute after:bottom-5 after:left-[18%] after:w-20 after:h-[0.2rem] after:bg-red-700 after:-translate-x-2/4 pt-6 pb-8">
             Conatct WIA
           </h2>
-          <div className="mb-1 flex items-center">
+          <div className=" flex items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -32,7 +54,7 @@ export default function Footer() {
             </a>
           </div>
 
-          <div className="mb-16 flex items-center">
+          <div className=" flex items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -55,17 +77,18 @@ export default function Footer() {
             </a>
           </div>
 
-          <p className="text-[#6b6b6b] text-sm">
+          {/* <p className="text-[#6b6b6b] text-sm">
             WIA is a 501(c)(3)
             <br /> non-profit organization.
-          </p>
+          </p> */}
         </div>
 
-        <div className="mb-6">
-          <h2 className="relative text-xl after:content-[''] after:absolute after:bottom-5 after:left-[14%] after:w-20 after:h-[0.2rem] after:bg-red-700 after:-translate-x-2/4 pt-6 pb-8">
+
+        <div className="FOLLOW mb-2 justify-items-center">
+          <h2 className="relative text-xl after:content-[''] after:absolute after:bottom-5 after:left-[20%] after:w-20 after:h-[0.2rem] after:bg-red-700 after:-translate-x-2/4  pt-6 pb-8">
             Follow WIA
           </h2>
-          <div className="flex mb-8">
+          <div className="flex">
             <div class="p-2 mr-2 rounded-full border-2 border-white hover:bg-[#00acee] duration-200">
               <a href="https://twitter.com/wia_animation" target="_blank">
                 <svg
@@ -129,7 +152,7 @@ export default function Footer() {
               </a>
             </div>
           </div>
-          <h2 className="relative text-xl after:content-[''] after:absolute after:bottom-5 after:left-[14%] after:w-20 after:h-[0.2rem] after:bg-red-700 after:-translate-x-2/4 pt-6 pb-8">
+          {/* <h2 className="relative text-xl after:content-[''] after:absolute after:bottom-5 after:left-[14%] after:w-20 after:h-[0.2rem] after:bg-red-700 after:-translate-x-2/4 pt-6 pb-8">
             Join Our Mailing List
           </h2>
           <p className="text-[#6b6b6b] my-4 text-sm">
@@ -139,15 +162,42 @@ export default function Footer() {
           </p>
           <button className="bg-red-700 p-3 font-semibold">
             SUBSCRIBE TO LIST
-          </button>
+          </button> */}
         </div>
 
-        <div className="mb-6">
-          <h2 className="relative text-xl after:content-[''] after:absolute after:bottom-5 after:left-[12%] after:w-20 after:h-[0.2rem] after:bg-red-700 after:-translate-x-2/4 pt-6 pb-8">
-            Latest News
+     
+        <div className="LATEST-POST mb-2">
+          <h2 className="relative text-xl after:content-[''] after:absolute after:bottom-5 after:left-[11%] after:w-20 after:h-[0.2rem] after:bg-red-700 after:-translate-x-2/4 pt-6 pb-8">
+            Latest Posts
           </h2>
           <ul>
-            <li className="border-b-[1px] border-gray-400 py-3 text-sm">
+            {posts.map(post => {
+              let date = new Date(post._createdAt);
+              return  <li className="border-b-[1px] border-gray-400 py-3 text-sm" key={post._id}>
+              <ClientSideRoute
+                route={`/blogs/${post.slug.current}`}
+                classN="cursor-pointer hover:text-red-700 duration-300"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  className="w-4 h-4 pb-1 inline"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                  />
+                </svg>
+              {post.title}
+              </ClientSideRoute>
+              <p className="pl-4 text-[#6b6b6b]">{`${months[date.getMonth()]} ${date.getDate()},${date.getFullYear()}` }</p>
+            </li>
+            })}
+            {/* <li className="border-b-[1px] border-gray-400 py-3 text-sm">
               <a
                 src="/"
                 className="cursor-pointer hover:text-red-700 duration-300"
@@ -239,11 +289,12 @@ export default function Footer() {
                 Help Us Build Connections
               </a>
               <p className="pl-4 text-[#6b6b6b]">April 19, 2023</p>
-            </li>
+            </li> */}
           </ul>
         </div>
+       
 
-        <div className="mb-6">
+        {/* <div className="mb-6">
           <h2 className="relative text-xl after:content-[''] after:absolute after:bottom-5 after:left-[15%] after:w-20 after:h-[0.2rem] after:bg-red-700 after:-translate-x-2/4 pt-6 pb-8">
             Support WIA While You <br /> Shop
           </h2>
@@ -267,9 +318,9 @@ export default function Footer() {
             and a percentage of your <br /> purchase total will be donated to{" "}
             <br /> support WIA!
           </p>
-        </div>
+        </div> */}
       </div>
-      <div className="py-6 bg-[#2f2f2f] text-sm text-white text-center">
+      {/* <div className="py-6 bg-[#2f2f2f] text-sm text-white text-center">
         <p className="cursor-pointer hover:text-red-700 duration-300">
           <span className="text-white cursor-pointer hover:text-red-700 duration-300">
             Privacy
@@ -286,7 +337,7 @@ export default function Footer() {
           </span>
           . All rights reserved.
         </p>
-      </div>
+      </div> */}
     </>
   );
 }

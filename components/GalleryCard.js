@@ -7,10 +7,35 @@ import Image from "next/image";
 export default function GalleryCard({
   title,
   image,
+  videoUrl,
   setIsOpen,
   setFocusedImageIndex,
   index,
 }) {
+
+  let imageOrVideo;
+
+  if (image) {
+    imageOrVideo = (
+      <Image
+          className="object-cover object-left lg:object-center "
+          src={urlForImage(image).url()}
+          alt={title}
+          fill
+        />
+    );
+  } else if (videoUrl) {
+    imageOrVideo = (
+      <iframe
+        // src={`${videoUrl}?autoplay=1&mute=1`}
+        src={`${videoUrl}?mute=1&control=0`}
+        className={`w-full h-full`}
+      ></iframe>
+    );
+  }
+
+
+
   return (
     <div
       className="flex flex-col group cursor-pointer"
@@ -20,12 +45,7 @@ export default function GalleryCard({
       }}
     >
       <div className="relative w-full h-80 drop-shadow-xl group-hover:scale-105 transition-transform duration-200 ease-out">
-        <Image
-          className="object-cover object-left lg:object-center "
-          src={urlForImage(image).url()}
-          alt={title}
-          fill
-        />
+        {imageOrVideo}
         {/* <ReactPlayer playing={true} controls={true} muted={true} url='https://www.youtube.com/watch?v=IfbJEgHzgig' /> */}
         <div className="absolute bottom-0 w-full bg-opacity-20 bg-black backdrop-blur-lg rounded drop-shadow-lg text-white p-5 flex justify-between">
           <div>
