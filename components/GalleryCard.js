@@ -28,8 +28,8 @@ export default function GalleryCard({
     imageOrVideo = (
       <iframe
         // src={`${videoUrl}?autoplay=1&mute=1`}
-        src={`${videoUrl}?mute=1&control=0`}
-        className={`w-full h-full`}
+        src={`${videoUrl}?mute=1&control=0&modestbranding=1`}
+        className={`w-full h-full `}
       ></iframe>
     );
   }

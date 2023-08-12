@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ClerkProvider } from "@clerk/nextjs";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,14 +14,19 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" >
+    <html lang="en" className="">
       <ClerkProvider>
-        <body className={" mx-auto" + inter.className}>
+        <body className={"scroll-smooth mx-auto" + inter.className}>
           <Header />
           <div className="mt-28">{children}</div>
           <Footer />
+          <ScrollToTopButton/>
         </body>
       </ClerkProvider>
+      {/* <script
+        type="text/javascript"
+        src="../node_modules/tw-elements/dist/js/tw-elements.umd.min.js"
+      ></script> */}
     </html>
   );
 }

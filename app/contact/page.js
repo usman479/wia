@@ -7,7 +7,7 @@ import texture from "@/public/texture.jpg";
 export default function contact() {
   return (
     <>
-      <section className="bg-[url('.././public/texture.jpg')] bg-blend-color-dodge bg-white/50 bg-repeat bg-center flex justify-center items-center">
+      <section className="bg-[url('.././public/texture.jpg')] bg-blend-color-dodge bg-white/50 bg-repeat bg-center flex justify-center items-center" id="top">
         {/* <div className="absolute inset-0">
           <Image src={texture} alt="background image" fill />
         </div> */}

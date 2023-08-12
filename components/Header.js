@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { HomeIcon, Home, LogIn } from "lucide-react";
 import {
   ClerkProvider,
   SignedIn,
@@ -19,7 +20,7 @@ export default function Header() {
   // console.log(isLoaded, isSignedIn, user )
   return (
     <main className="fixed top-0 left-0 right-0 z-50 bg-white select-none w-full">
-      <div className="relative xl:static justify-between px-6 md:px-20 py-2 items-center flex shadow-md h-28">
+      <div className="relative xl:static justify-between px-6 md:px-20 py-2 items-baseline xl:items-center flex shadow-md h-28">
         <Link href="/">
           <Image
             src="/logo.png"
@@ -30,17 +31,33 @@ export default function Header() {
           />
         </Link>
         <ul className={!isOpen ? "navs-hide" : "navs-show"}>
-          {/* <Link href={"/about-us"}>
-            <li className="xl:hover-navbar hover:text-red-500 cursor-pointer py-4 border-b xl:border-none xl:py-6 xl:px-4">
-              about us
+          <Link href={"/#top"}>
+            <li className="xl:hover-navbar rounded-md hover:text-red-500 cursor-pointer py-4 border-b xl:border-none xl:py-6 xl:px-4">
+               <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="w-6 h-6"
+              >
+                <path d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z" />
+                <path d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z" />
+              </svg>
+
+              {/* <Home /> */}
+              {/* home */}
             </li>
-          </Link> */}
-          <Link href={"/service"}>
+          </Link>
+          <Link href={"/#about-us"}>
+            <li className="xl:hover-navbar hover:text-red-500 cursor-pointer py-4 border-b xl:border-none xl:py-6 xl:px-4">
+              about
+            </li>
+          </Link>
+          <Link href={"/service#top"}>
             <li className="xl:hover-navbar hover:text-red-500 cursor-pointer py-4 border-b xl:border-none xl:py-6 xl:px-4">
               Services
             </li>
           </Link>
-          <Link href={"/portfolio"}>
+          <Link href={"/portfolio#top"}>
             <li className="xl:hover-navbar hover:text-red-500 cursor-pointer py-4 border-b xl:border-none xl:py-6 xl:px-4">
               Portfolio
             </li>
@@ -48,12 +65,12 @@ export default function Header() {
           {/* <li className="xl:hover-navbar hover:text-red-500 cursor-pointer py-4 border-b xl:border-none xl:py-6 xl:px-4">
             get involved
           </li> */}
-          <Link href={"/blogs"}>
+          <Link href={"/blogs#top"}>
             <li className="xl:hover-navbar hover:text-red-500 cursor-pointer py-4 border-b xl:border-none xl:py-6 xl:px-4">
               blogs
             </li>
           </Link>
-          <Link href="/contact">
+          <Link href="/contact#top">
             <li className="xl:hover-navbar hover:text-red-500 cursor-pointer py-4 border-b xl:border-none xl:py-6 xl:px-4">
               contact
             </li>
@@ -61,7 +78,20 @@ export default function Header() {
           <SignedOut>
             <SignInButton mode="modal">
               <li className="xl:hover-navbar rounded-md  hover:text-red-500 cursor-pointer py-4 border-b xl:border-none xl:py-6 xl:px-4">
-                Sign In
+                {/* Sign In */}
+                <LogIn />
+                {/* <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M7.5 3.75A1.5 1.5 0 006 5.25v13.5a1.5 1.5 0 001.5 1.5h6a1.5 1.5 0 001.5-1.5V15a.75.75 0 011.5 0v3.75a3 3 0 01-3 3h-6a3 3 0 01-3-3V5.25a3 3 0 013-3h6a3 3 0 013 3V9A.75.75 0 0115 9V5.25a1.5 1.5 0 00-1.5-1.5h-6zm10.72 4.72a.75.75 0 011.06 0l3 3a.75.75 0 010 1.06l-3 3a.75.75 0 11-1.06-1.06l1.72-1.72H9a.75.75 0 010-1.5h10.94l-1.72-1.72a.75.75 0 010-1.06z"
+                    clipRule="evenodd"
+                  />
+                </svg> */}
               </li>
             </SignInButton>
           </SignedOut>

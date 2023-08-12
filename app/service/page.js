@@ -17,7 +17,7 @@ async function getServices() {
 export default async function servicePage() {
   const services = await getServices();
   return (
-    <div className=" mb-12 mt-36 space-y-8 px-6 md:px-20">
+    <div className=" mb-12 mt-36 space-y-8 px-6 md:px-20" id="top">
       {services.map((service,index) => {
         return <Service image={service.mainImage} title={service.title} description={service.description} position={index} id={service._id} key={service._id}/>
       })}

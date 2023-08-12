@@ -1,13 +1,14 @@
-"use client"
+"use client";
 import { Carousel } from "@material-tailwind/react";
 import Image from "next/image";
-import image1 from "@/public/img-1.jpeg"
-import image2 from "@/public/img-2.jpeg"
-import image3 from "@/public/img-3.jpeg"
-import image4 from "../public/image-1.jpg"
+import image1 from "@/public/img-1.jpeg";
+import image2 from "@/public/img-2.jpeg";
+import image3 from "@/public/img-3.jpeg";
+import image4 from "../public/image-1.jpg";
 export default function Example() {
   return (
     <Carousel
+      id="top"
       autoplay={true}
       loop={true}
       autoplayDelay={5000}

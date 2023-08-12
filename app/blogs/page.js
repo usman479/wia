@@ -13,7 +13,7 @@ async function getBlogs() {
 export default async function page() {
     const data = await getBlogs();
   return (
-    <div>
+    <div id='top'>
         <BlogList posts={data} />
     </div>
   )

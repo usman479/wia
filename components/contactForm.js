@@ -1,6 +1,38 @@
 "use client";
-import Image from "next/image";
+import Swal from "sweetalert2";
+import { useForm } from "@formspree/react";
+// import { useRouter } from "next/navigation";
+
+// const isBrowser = () => typeof window !== "undefined"; //The approach recommended by Next.js
+
+// function scrollToTop() {
+//   if (!isBrowser()) return;
+//   window.scrollTo({ top: 0, behavior: "smooth" });
+// }
+
 export default function ContactForm() {
+  const [state, handleSubmit] = useForm("myyqekvq"); // mqkvpewv mine
+  // const router = useRouter();
+
+  if (state.succeeded) {
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Thanks for contacting us!",
+      showConfirmButton: false,
+      timer: 3000,
+    });
+
+  
+    // if (isBrowser()) {
+    //   window.onbeforeunload = () => {
+    //     for (const form of document.getElementsByTagName("form")) {
+    //       form.reset();
+    //     }
+    //   };
+    // }
+  }
+
   return (
     <>
       <div className="flex justify-between flex-col xl:flex-row my-10 py-10 px-6 md:px-20 h-max">
@@ -8,13 +40,18 @@ export default function ContactForm() {
           <h2 className="text-3xl mb-6 font-semibold leading-snug tracking-wider">
             Contact Form
           </h2>
-          <form action="" className="flex flex-col">
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col"
+          >
             {/* <div className="mb-6 shadow-xl"> */}
             <div className="flex gap-x-4 flex-col sm:flex-row">
               <input
                 type="text"
                 className=" border border-slate-300 rounded-md px-3 py-2 w-full mb-6 shadow-md"
                 placeholder="Name"
+                name="Name"
+                required
               />
               {/* </div> */}
               {/* <div className="mb-6 shadow-xl"> */}
@@ -22,6 +59,8 @@ export default function ContactForm() {
                 type="email"
                 className=" border border-slate-300 rounded-md px-3 py-2 w-full mb-6 shadow-md"
                 placeholder="Email"
+                name="Email"
+                required
               />
             </div>
             {/* </div> */}
@@ -30,8 +69,10 @@ export default function ContactForm() {
               <input
                 type="tel"
                 className="border border-slate-300 rounded-md px-3 py-2 w-full mb-6 shadow-md"
-                pattern="[0-9]{4}-[0-9]{7}"
+                // pattern="[0-9]{4}-[0-9]{7}"
                 placeholder="Phone no."
+                name="Phone_No"
+                required
               />
               {/* </div> */}
               {/* <div className="mb-6 shadow-xl"> */}
@@ -39,6 +80,8 @@ export default function ContactForm() {
                 type="text"
                 className="border border-slate-300 rounded-md px-3 py-2 w-full mb-6 shadow-md"
                 placeholder="Address"
+                name="Address"
+                required
               />
             </div>
             {/* </div> */}
@@ -48,12 +91,16 @@ export default function ContactForm() {
               cols={30}
               rows={3}
               placeholder="Message"
+              minLength={5}
+              name="Message"
+              required
             ></textarea>
             {/* </div> */}
             <div>
               <button
                 className="flex items-center group text-white font-semibold bg-red-600 hover:bg-transparent hover:text-red-600 duration-300 border-2 border-red-600 text-lg md:text-xl rounded-md px-6 py-1 md:px-6 md:py-2"
                 type="submit"
+                disabled={state.submitting}
               >
                 Submit
               </button>
