@@ -110,7 +110,7 @@ export default function TestimonialCarousel() {
   return (
     <>
       {/* <div className=""></div> */}
-      <h2 className="text-center text-4xl my-6 px-6 md:px-20 tracking-wider font-semibold">
+      <h2 className="text-center text-5xl my-6 px-6 md:px-20  font-bold ">
         Testimonials
       </h2>
 
@@ -155,7 +155,7 @@ export default function TestimonialCarousel() {
             <p className="text-4xl font-bold">
               {testimonials[currentIndex].name}
             </p>
-            <p className="text-3xl tracking-wide text-gray-700">
+            <p className="text-3xl tracking-wide text-gray-700 ">
               {testimonials[currentIndex].profession}
               {/* Web Developer */}
             </p>

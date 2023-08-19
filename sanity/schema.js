@@ -8,8 +8,10 @@ import service from './schemas/service'
 import subService from './schemas/subService'
 import gallery from './schemas/gallery'
 import testimonials from './schemas/testimonials'
+import carousel from './schemas/carousel'
+import faq from './schemas/faq'
 
 export const schema = {
   // types: [category,post,author,pet,blockContent,comment],
-  types:[post,comment,blockContent,service,subService,gallery,testimonials]
+  types:[post,comment,blockContent,service,subService,gallery,testimonials,carousel,faq]
 }

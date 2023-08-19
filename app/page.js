@@ -10,8 +10,21 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { client } from "@/sanity/lib/client";
+import Accord from "@/components/Accord";
 
-export default function Home() {
+export const revalidate = 300; // revalidate this page every 60 seconds
+
+async function getFaq() {
+  const res = client.fetch(`*[_type=='faq']| order(_createdAt desc)`, {
+    next: { revalidate: 300 },
+  });
+
+  return res;
+}
+
+export default async function Home() {
+  const faqs = await getFaq();
   return (
     <>
       <Corousel />
@@ -37,35 +50,10 @@ export default function Home() {
         />
       </section>
       <TestimonialCarousel />
-      <h3 className="text-center text-4xl my-6 px-6 md:px-20 tracking-wider font-semibold">
+      <h3 className="text-center text-5xl my-6 px-6 md:px-20  font-bold">
         Frequently asked questions
       </h3>
-      <Accordion
-        type="single"
-        collapsible
-        className="py-8  px-6 md:px-20 my-12 "
-      >
-        <AccordionItem value="item-1">
-          <AccordionTrigger className="text-2xl">
-            How do you determine pricing of a project?
-          </AccordionTrigger>
-          <AccordionContent className="text-base  ml-2">
-            In this blog post, I want to refine your mental model for Flexbox.
-            We'll build an intuition for how the Flexbox algorithm works, by
-            learning about each of these properties. Whether you're a CSS
-            beginner, or you've been using Flexbox for years, I bet you'll learn
-            quite a bit!
-          </AccordionContent>
-        </AccordionItem>
-        <AccordionItem value="item-2">
-          <AccordionTrigger className="text-2xl">
-            Do i retain the rights to my files
-          </AccordionTrigger>
-          <AccordionContent className="text-base  ml-2">
-            Yes. It adheres to the WAI-ARIA design pattern.
-          </AccordionContent>
-        </AccordionItem>
-      </Accordion>
+      <Accord faqs={faqs} />
     </>
   );
 }

@@ -26,7 +26,7 @@ export default async function portfolioPage() {
   return (
     <div id="top">
       <div className="flex justify-center items-center">
-        <h1 className="text-4xl sm:text-6xl font-bold text-center py-4 bg-gradient-to-r from-red-600 to-gray-600 inline-block text-transparent bg-clip-text tracking-wider text-red-600 ">
+        <h1 className="text-5xl sm:text-6xl font-bold text-center py-4 bg-gradient-to-r from-red-600 to-gray-600 inline-block text-transparent bg-clip-text tracking-wider text-red-600 ">
           PORTFOLIO
         </h1>
       </div>

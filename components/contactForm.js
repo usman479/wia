@@ -1,6 +1,7 @@
 "use client";
 import Swal from "sweetalert2";
 import { useForm } from "@formspree/react";
+import { Resend } from "resend";
 // import { useRouter } from "next/navigation";
 
 // const isBrowser = () => typeof window !== "undefined"; //The approach recommended by Next.js
@@ -8,7 +9,10 @@ import { useForm } from "@formspree/react";
 // function scrollToTop() {
 //   if (!isBrowser()) return;
 //   window.scrollTo({ top: 0, behavior: "smooth" });
+
 // }
+
+const resend = new Resend('re_CnRR2Ec6_74YxYHCwnFoLopej7p49v1Xj');
 
 export default function ContactForm() {
   const [state, handleSubmit] = useForm("myyqekvq"); // mqkvpewv mine
@@ -33,6 +37,17 @@ export default function ContactForm() {
     // }
   }
 
+  const onHandleSubmit = (e) => {
+    e.preventDefault();
+    resend.emails.send({
+      from: 'onboarding@resend.dev',
+      to: 'muusman479@gmail.com',
+      subject: 'Hello World',
+      html: '<p>Congrats on sending your <strong>first email</strong>!</p>'
+    });
+    console.log('done')
+  }
+
   return (
     <>
       <div className="flex justify-between flex-col xl:flex-row my-10 py-10 px-6 md:px-20 h-max">
@@ -41,7 +56,7 @@ export default function ContactForm() {
             Contact Form
           </h2>
           <form
-            onSubmit={handleSubmit}
+            onSubmit={(e) => onHandleSubmit(e)}
             className="flex flex-col"
           >
             {/* <div className="mb-6 shadow-xl"> */}
@@ -81,7 +96,7 @@ export default function ContactForm() {
                 className="border border-slate-300 rounded-md px-3 py-2 w-full mb-6 shadow-md"
                 placeholder="Address"
                 name="Address"
-                required
+                
               />
             </div>
             {/* </div> */}

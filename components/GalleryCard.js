@@ -12,35 +12,35 @@ export default function GalleryCard({
   setFocusedImageIndex,
   index,
 }) {
-
   let imageOrVideo;
 
   if (image) {
     imageOrVideo = (
       <Image
-          className="object-cover object-left lg:object-center "
-          src={urlForImage(image).url()}
-          alt={title}
-          fill
-        />
+        className="object-cover object-left lg:object-center "
+        src={urlForImage(image).url()}
+        alt={title}
+        fill
+      />
     );
   } else if (videoUrl) {
     imageOrVideo = (
-      <iframe
-        // src={`${videoUrl}?autoplay=1&mute=1`}
-        src={`${videoUrl}?mute=1&control=0&modestbranding=1`}
-        className={`w-full h-full `}
-      ></iframe>
+      <>
+        <iframe
+          // src={`${videoUrl}?autoplay=1&mute=1`}
+          src={`${videoUrl}?mute=1&control=0&modestbranding=1`}
+          className={`w-full h-full `}
+        ></iframe>
+        {/* <h3 className="text-6xl absolute top-0 left-[150px]">🎃</h3> */}
+      </>
     );
   }
-
-
 
   return (
     <div
       className="flex flex-col group cursor-pointer"
       onClick={() => {
-        setFocusedImageIndex(prev => index);
+        setFocusedImageIndex((prev) => index);
         setIsOpen(true);
       }}
     >
